@@ -21,7 +21,7 @@
 ## 与 SDK 的关系
 
 - `sdk-rust` 编译时 `include_str!("../schemas/agent.schema.json")` 嵌入。本 spec 仓是 source-of-truth；sdk-rust 仓内有副本（与 sdk 一起发版），CI 同步保证一致
-- `sdk-ts` 通过 npm 引用本仓库（待发布到 `@u-claw-os/spec`）
+- `sdk-ts` 通过 npm 引用本仓库（待发布到 `@uclawos/spec`）
 - 第三方语言：直接 fetch 文件 URL（`https://uclawos.org/spec/v0.1/schemas/agent.schema.json` — 域名待启用）
 
 ## 版本管理

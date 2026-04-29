@@ -11,10 +11,10 @@
 
 ## 怎么用
 
-### Rust（u-claw-os-sdk）
+### Rust（uclawos-sdk）
 
 ```rust
-use u_claw_os_sdk::{parse_agent_manifest, validate::validate_agent};
+use uclawos_sdk::{parse_agent_manifest, validate::validate_agent};
 
 let m = parse_agent_manifest(&toml_text)?;
 validate_agent(&m)?;
@@ -46,4 +46,4 @@ yj -t < openclaw/agent.toml > openclaw.agent.json
 
 1. 写 `agents/<id>/agent.toml`
 2. 用上面的 SDK / ajv 跑通校验
-3. 提 PR 到 `github.com/u-claw-os/agents`
+3. 提 PR 到 `github.com/uclawos/agents`
