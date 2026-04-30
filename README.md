@@ -1,16 +1,17 @@
 # UCP Spec
 
-> U-ClawOS Protocol（UCP）规范的机器可读部分。
-> 人类可读的协议规范见 [`docs/14-UCP协议规范.md`](../docs/14-UCP协议规范.md)。
+> U-ClawOS Protocol（UCP）规范。
+> Human-readable: [`PROTOCOL.md`](./PROTOCOL.md) (English) / [`docs/14-UCP协议规范.md`](../docs/14-UCP协议规范.md) (Chinese, authoritative)。
 
 ## 内容
 
-- [`schemas/agent.schema.json`](./schemas/agent.schema.json) — `agent.toml` 的 JSON Schema
-- `schemas/job.schema.json` — `job.toml` 的 JSON Schema（v0.1.1 补）
+- [`PROTOCOL.md`](./PROTOCOL.md) — 协议规范英文版（v0.2 起）
+- [`schemas/agent.schema.json`](./schemas/agent.schema.json) — `agent.toml` 的 JSON Schema (v0.2)
+- `schemas/job.schema.json` — `job.toml` 的 JSON Schema（v0.2.x 补）
 
 ## 当前协议版本
 
-`v0.1` (Draft)
+`v0.2` (Draft, 2026-04-30) —— 主要变更：`runtime.type = "standalone"`（"软件管家"模式）+ minor 向后兼容。详见 [`PROTOCOL.md`](./PROTOCOL.md) §4.3。
 
 ## 用途
 
@@ -35,6 +36,6 @@
 | 版本 | 时间 | 主要变化 |
 |---|---|---|
 | v0.1 | 2026-04 | 初版：agent.toml + job.toml 主结构 |
-| v0.2 | 2026-Q3 | 容器隔离、Skill 协议草案 |
-| v0.3 | 2026-Q4 | 联邦：多机协同 |
+| **v0.2** | **2026-04** | **`runtime.type = "standalone"`；minor 向后兼容；英文 PROTOCOL.md** |
+| v0.3 | 2026-Q4 | 容器隔离、Skill 协议草案、联邦多机 |
 | v1.0 | 2027 | 至少 3 家独立厂商 Orchestrator 实现 |

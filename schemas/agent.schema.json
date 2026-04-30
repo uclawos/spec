@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://uclawos.org/spec/v0.1/schemas/agent.schema.json",
+  "$id": "https://uclawos.org/spec/v0.2/schemas/agent.schema.json",
   "title": "UCP Agent Manifest",
-  "description": "JSON Schema for U-ClawOS Protocol v0.1 agent.toml. See docs/14-UCP协议规范.md §4.",
+  "description": "JSON Schema for U-ClawOS Protocol v0.2 agent.toml. See docs/14-UCP协议规范.md §4.",
   "type": "object",
   "required": ["meta", "install", "runtime", "capabilities"],
   "additionalProperties": true,
@@ -75,15 +75,35 @@
       "properties": {
         "type": {
           "type": "string",
-          "enum": ["http_mcp", "acp", "stdio_mcp", "http_api", "cli_oneshot"]
+          "enum": ["http_mcp", "acp", "stdio_mcp", "http_api", "cli_oneshot", "standalone"]
         },
         "endpoint": { "type": "string" },
         "health_check": { "type": "string" },
         "startup_cmd": { "type": "string" },
         "shutdown_cmd": { "type": "string" },
         "log_dir": { "type": "string" },
-        "config_dir": { "type": "string" }
-      }
+        "config_dir": { "type": "string" },
+        "web_url": {
+          "type": "string",
+          "format": "uri",
+          "description": "v0.2+ standalone：装好后用户点'打开 Web'跳的 URL"
+        },
+        "native_entry": {
+          "type": "string",
+          "description": "v0.2+ standalone：装好后用户点'打开 Native'跑的可执行（绝对路径或 PATH 上的命令）"
+        }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "type": { "const": "standalone" } } },
+          "then": {
+            "anyOf": [
+              { "required": ["web_url"] },
+              { "required": ["native_entry"] }
+            ]
+          }
+        }
+      ]
     },
     "capabilities": {
       "type": "object",
